@@ -4,10 +4,11 @@ app_admin_post:
         grid: app_post
         except: [ "show" ]
         templates: SyliusAdminBundle:Crud
+        form: AppBundle\Form\PostType
     type: sylius.resource
     prefix: admin
 
 app_shop_post_index:
     pattern: /shop/posts
     defaults:
-        _controller: app.controller.post:indexAction
+        _controller: app.controller.shop_post:indexAction
