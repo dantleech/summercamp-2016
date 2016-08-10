@@ -1,0 +1,6 @@
+app_post_api:
+    resource: |
+        alias: app.post
+        except: [ "index" ]
+    type: sylius.resource_api
+    prefix: app-api
