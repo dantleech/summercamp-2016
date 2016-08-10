@@ -1,0 +1,7 @@
+app_post:
+    resource: |
+        alias: app.post
+        except: [ "show" ]
+        templates: SyliusAdminBundle:Crud
+    type: sylius.resource
+    prefix: admin

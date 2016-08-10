@@ -1,2 +1,4 @@
 api:
     resource: routing_api.yml
+admin:
+    resource: routing.yml

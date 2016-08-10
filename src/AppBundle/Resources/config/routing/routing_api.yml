@@ -2,5 +2,8 @@ app_post_api:
     resource: |
         alias: app.post
         except: [ "index" ]
+
+        # required in order to not conflict with admin routes
+        section: api
     type: sylius.resource_api
     prefix: app-api
