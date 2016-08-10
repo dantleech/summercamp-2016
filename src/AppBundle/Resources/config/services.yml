@@ -1,5 +1,12 @@
 services:
-    admin_menu_listener:
+    app.admin_menu_listener:
         class: AppBundle\Menu\AdminMenuListener
         tags:
             - { name: kernel.event_listener, event: sylius.menu.admin.main, method: buildMenu }
+
+    app.controller.post:
+        class: AppBundle\Controller\PostController
+        arguments:
+            - @doctrine.orm.default_entity_manager
+            - @templating
+    

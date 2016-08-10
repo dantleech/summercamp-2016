@@ -1,4 +1,4 @@
-app_post:
+app_admin_post:
     resource: |
         alias: app.post
         grid: app_post
@@ -6,3 +6,8 @@ app_post:
         templates: SyliusAdminBundle:Crud
     type: sylius.resource
     prefix: admin
+
+app_shop_post_index:
+    pattern: /shop/posts
+    defaults:
+        _controller: app.controller.post:indexAction
