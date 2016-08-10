@@ -1,6 +1,7 @@
 app_post:
     resource: |
         alias: app.post
+        grid: app_post
         except: [ "show" ]
         templates: SyliusAdminBundle:Crud
     type: sylius.resource
