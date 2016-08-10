@@ -4,13 +4,18 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Resource\Model\ResourceInterface;
+use Sylius\Component\Resource\Model\TranslatableTrait;
+use Doctrine\Common\Collections\ArrayCollection;
+use Sylius\Component\Resource\Model\TranslatableInterface;
 
 
 /**
  * @ORM\Entity()
  */
-class Post implements ResourceInterface
+class Post implements ResourceInterface, TranslatableInterface
 {
+    use TranslatableTrait;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -19,19 +24,14 @@ class Post implements ResourceInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string")
-     */
-    private $title;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $body;
-
-    /**
      * @ORM\Column(type="date", nullable=true)
      */
     private $publishedAt;
+
+    public function __construct()
+    {
+        $this->translations = new ArrayCollection();
+    }
 
     public function getId() 
     {
@@ -40,22 +40,22 @@ class Post implements ResourceInterface
 
     public function getTitle() 
     {
-        return $this->title;
+        return $this->translate()->getTitle();
     }
     
     public function setTitle($title)
     {
-        $this->title = $title;
+        $this->translate()->setTitle($title);
     }
 
     public function getBody() 
     {
-        return $this->body;
+        return $this->translate()->getBody();
     }
     
     public function setBody($body)
     {
-        $this->body = $body;
+        $this->translate()->setBody($body);
     }
 
     public function getPublishedAt() 
