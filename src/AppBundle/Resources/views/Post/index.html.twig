@@ -1,0 +1,13 @@
+{% extends "SyliusShopBundle::layout.html.twig" %}
+
+{% block content %}
+
+{% for post in posts %}
+    <article class="callout">
+        <h4>{{ post.title }}</h4>
+        <p>{{ post.body }}</p>
+    </article>
+{% endfor %}
+</table>
+
+{% endblock %}

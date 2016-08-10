@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use AppBundle\Entity\Post;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class PostController
 {
@@ -27,11 +28,11 @@ class PostController
         $repository = $this->entityManager->getRepository(Post::class);
         $posts = $repository->findAll();
 
-        return $this->templating->render(
-            '@AppBundle/Post/index.twig',
+        return new Response($this->templating->render(
+            '@App/Post/index.html.twig',
             [
                 'posts' => $posts
             ]
-        );
+        ));
     }
 }
