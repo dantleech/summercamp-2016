@@ -3,9 +3,16 @@
 {% block content %}
 
 {% for post in posts %}
-    <article class="callout">
-        <h4>{{ post.title }}</h4>
+    <article class="ui segment">
+        <h2><a href="#">{{ post.title }}</a></h2>
         <p>{{ post.body }}</p>
+        <b>Taxons</b>: 
+        {% for taxon in post.categories %}
+        <i>{{ taxon.name }}{% if not loop.last %},{% endif %}</i>
+        {% else %}
+        <i>N/A</i>
+        {% endfor %}
+
     </article>
 {% endfor %}
 </table>
