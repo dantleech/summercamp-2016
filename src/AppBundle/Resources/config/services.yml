@@ -9,3 +9,11 @@ services:
         arguments:
             - @doctrine.orm.default_entity_manager
             - @templating
+
+    app.rule_checker.karma:
+        class: AppBundle\Promotion\KarmaRuleChecker
+        tags:
+            - 
+                name: sylius.promotion_rule_checker
+                type: karma
+                label: Karma
