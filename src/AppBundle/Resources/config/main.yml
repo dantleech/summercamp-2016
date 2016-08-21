@@ -1,3 +1,10 @@
 imports:
     - { resource: resources.yml }
     - { resource: grid.yml }
+
+
+sylius_customer:
+    resources:
+        customer:
+            classes:
+                model: AppBundle\Entity\Customer
